@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{888E4A2E-AF6E-4B3B-B4A1-C9DC308AB0BD}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="FirstStepsReactiveUI/ViewModels/Dashboard.cs">
     <Files>
-      <File FileName="FirstStepsReactiveUI/ViewModels/Dashboard.cs" Line="51" Column="11" />
-      <File FileName="../../../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/10.4.0.123/src/mono/mcs/class/referencesource/mscorlib/system/runtime/exceptionservices/exceptionservicescommon.cs" Line="143" Column="1" />
-      <File FileName="FirstStepsReactiveUI/UserInterfaces/ReactiveContentPage.cs" Line="26" Column="54" NotebookId="1" />
-      <File FileName="FirstStepsReactiveUI/ViewModels/ViewModelBase.cs" Line="16" Column="1" NotebookId="1" />
-      <File FileName="FirstStepsReactiveUI/UserInterfaces/Dashboard.cs" Line="25" Column="27" NotebookId="1" />
+      <File FileName="FirstStepsReactiveUI/ViewModels/Dashboard.cs" Line="77" Column="42" />
+      <File FileName="FirstStepsReactiveUI/UserInterfaces/ContentPageBase.cs" Line="33" Column="7" NotebookId="1" />
+      <File FileName="FirstStepsReactiveUI/ViewModels/ViewModelBase.cs" Line="39" Column="3" NotebookId="1" />
+      <File FileName="FirstStepsReactiveUI/UserInterfaces/Dashboard.cs" Line="58" Column="4" NotebookId="1" />
       <File FileName="FirstStepsReactiveUI/Extensions/IObservableExtensions.cs" Line="23" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

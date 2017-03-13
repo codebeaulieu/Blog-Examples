@@ -2,10 +2,10 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/ReactiveUI/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/Splat/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/ReactiveUI/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/Splat/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform/library_project_imports/res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj/Debug/__library_projects__/ReactiveUI/library_project_imports/assets</ResolvedAssetDirectory>
@@ -15,9 +15,9 @@
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/ReactiveUI.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/Splat.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/ReactiveUI.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/Splat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

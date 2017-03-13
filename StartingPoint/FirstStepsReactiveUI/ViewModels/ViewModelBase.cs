@@ -10,25 +10,22 @@ namespace FirstStepsReactiveUI
 {
 	/*
 		This is a drastically simplified version of Mike Stonis's (http://www.eightbot.com/) ViewModelBase implementation. 
-		Many of the features have been stripped out to simplify this demonstration. Used with permission.
+		Most of the features have been stripped out to simplify this demonstration. Used with permission.
 	*/
-	public abstract class ViewModelBase<T> : ReactiveObject, IDisposable where T : ReactiveObject, IDisposable
+	public abstract class ViewModelBase<T> : ReactiveObject, IDisposable where T : ReactiveObject, IDisposable // 1
 	{  
+		// 2
 		protected readonly Lazy<CompositeDisposable> ViewModelBindings = new Lazy<CompositeDisposable>(() => new CompositeDisposable());  
-
-		public bool IsDisposed { get; private set; }
-
+		// 3
+		public bool IsDisposed { get; private set; } 
+		// 4
+		protected abstract void RegisterObservables();
+		// 5
 		protected ViewModelBase()
-		{
-			Initialize();
-
+		{ 
 			RegisterObservables(); 
-		}
-
-		protected virtual void Initialize() { }
-
-		protected abstract void RegisterObservables(); 
-
+		} 
+		// 6
 		#region IDisposable implementation
 		public void Dispose()
 		{ 
