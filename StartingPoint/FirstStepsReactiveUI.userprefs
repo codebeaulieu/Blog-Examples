@@ -1,14 +1,13 @@
 ﻿<Properties StartupConfiguration="{888E4A2E-AF6E-4B3B-B4A1-C9DC308AB0BD}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="FirstStepsReactiveUI/ViewModels/Dashboard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FirstStepsReactiveUI/ViewModels/ViewModelBase.cs">
     <Files>
-      <File FileName="FirstStepsReactiveUI/ViewModels/Dashboard.cs" Line="77" Column="42" />
+      <File FileName="FirstStepsReactiveUI/ViewModels/Dashboard.cs" Line="88" Column="54" />
       <File FileName="FirstStepsReactiveUI/UserInterfaces/ContentPageBase.cs" Line="33" Column="7" NotebookId="1" />
-      <File FileName="FirstStepsReactiveUI/ViewModels/ViewModelBase.cs" Line="39" Column="3" NotebookId="1" />
+      <File FileName="FirstStepsReactiveUI/ViewModels/ViewModelBase.cs" Line="30" Column="9" NotebookId="1" />
       <File FileName="FirstStepsReactiveUI/UserInterfaces/Dashboard.cs" Line="58" Column="4" NotebookId="1" />
-      <File FileName="FirstStepsReactiveUI/Extensions/IObservableExtensions.cs" Line="23" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.FirstStepsReactiveUI.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.972905A8-238A-4435-BFC0-68407A7208D4" />
+  <MonoDevelop.Ide.ItemProperties.FirstStepsReactiveUI.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C035F0A7-BE28-48CF-9B2E-628C61F68B7A" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
