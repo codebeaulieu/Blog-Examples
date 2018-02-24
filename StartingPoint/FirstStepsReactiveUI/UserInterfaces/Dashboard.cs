@@ -21,6 +21,7 @@ namespace FirstStepsReactiveUI.UserInterface.Pages
 
         protected override void SetupUserInterface()
         {
+            this.BackgroundColor = Color.FromHex("#333333");
 
             NavigationPage.SetBackButtonTitle(this, "Back");
 
@@ -41,18 +42,19 @@ namespace FirstStepsReactiveUI.UserInterface.Pages
 
             _status = new Label
             {
-                FontSize = 20,
+                FontSize = 22,
                 FontFamily = "AvenirNext-Medium",
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.EndAndExpand 
+                VerticalOptions = LayoutOptions.EndAndExpand,
+                TextColor = Color.White
             };
 
             _images = new Image
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.StartAndExpand,
                 Aspect = Aspect.AspectFit,
                 HeightRequest = 350
             };
@@ -72,7 +74,10 @@ namespace FirstStepsReactiveUI.UserInterface.Pages
             this.Bind(ViewModel, x => x.StatusMessage, c => c._status.Text)
                 .DisposeWith(ControlBindings);
 
-            this.WhenAnyValue(x => x.ViewModel.CurrentImage)
+            this.WhenAnyValue(x => x.ViewModel.CurrentImage) 
+                .Where(fileName => !string.IsNullOrEmpty(fileName))
+                .SubscribeOn(RxApp.TaskpoolScheduler)
+                .Select(fileName => ImageSource.FromFile(fileName))
                 .ObserveOn(RxApp.MainThreadScheduler)
                 .BindTo(this, x => x._images.Source)
                 .DisposeWith(ControlBindings);  

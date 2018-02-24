@@ -5,7 +5,6 @@ using System.Reactive.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using ReactiveUI;
-using Xamarin.Forms;
 
 namespace FirstStepsReactiveUI.ViewModels
 {
@@ -26,10 +25,10 @@ namespace FirstStepsReactiveUI.ViewModels
 			set { this.RaiseAndSetIfChanged(ref _statusMessage, value); }
 		}
 
-		ImageSource _currentImage;
+		string _currentImage;
 
 		[DataMember]
-		public ImageSource CurrentImage
+		public string CurrentImage
 		{
 			get { return _currentImage; }
 			set { this.RaiseAndSetIfChanged(ref _currentImage, value); }
@@ -61,15 +60,15 @@ namespace FirstStepsReactiveUI.ViewModels
             InitializeCommand = ReactiveCommand.CreateFromTask(async _ => 
 			{
 				// initialization logic goes here 
-				StatusMessage = "Initializing";
+				StatusMessage = "Initializing...";
 
 				// maybe we're getting images from a server 
-				await Task.Delay(1000);
+				await Task.Delay(1500);
 
-				StatusMessage = "Downloading";
+				StatusMessage = "Downloading...";
 
 				// simulate a lengthy server response
-				await Task.Delay(3000); 
+				await Task.Delay(2500); 
 
 				StatusMessage = "Go-Go Random Logos!";
 
@@ -87,17 +86,18 @@ namespace FirstStepsReactiveUI.ViewModels
 	 
 			Observable
 				.Interval(TimeSpan.FromMilliseconds(500))
-				.ObserveOn(RxApp.MainThreadScheduler)
+                .SubscribeOn(RxApp.TaskpoolScheduler)
 				.Select(_ =>
 				{
 					if (ImageList.Count == 0) 
-						return ImageSource.FromFile("reactivelogo.png");
+						return "reactivelogo.png";
 
 					Random random = new Random();
 					int number = random.Next(0, ImageList.Count);
 
-					return ImageSource.FromFile(ImageList[number]);  
+					return ImageList[number];  
     			})
+                .ObserveOn(RxApp.MainThreadScheduler)
                 .BindTo(this, x => x.CurrentImage)
                 .DisposeWith(ViewModelBindings);
  
