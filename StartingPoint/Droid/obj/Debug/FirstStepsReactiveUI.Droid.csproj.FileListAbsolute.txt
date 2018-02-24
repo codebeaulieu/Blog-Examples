@@ -1,0 +1,1 @@
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/Droid/obj/Debug/designtime/Resource.Designer.cs

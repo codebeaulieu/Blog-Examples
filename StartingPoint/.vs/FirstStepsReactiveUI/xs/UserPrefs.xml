@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{888E4A2E-AF6E-4B3B-B4A1-C9DC308AB0BD}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FirstStepsReactiveUI/Extensions/IObservableExtensions.cs">
+    <Files>
+      <File FileName="FirstStepsReactiveUI/ViewModels/Dashboard.cs" Line="88" Column="51" />
+      <File FileName="FirstStepsReactiveUI/Extensions/IObservableExtensions.cs" Line="15" Column="1" />
+      <File FileName="FirstStepsReactiveUI/UserInterfaces/ContentPageBase.cs" Line="33" Column="7" NotebookId="1" />
+      <File FileName="FirstStepsReactiveUI/ViewModels/ViewModelBase.cs" Line="19" Column="9" NotebookId="1" />
+      <File FileName="FirstStepsReactiveUI/UserInterfaces/Dashboard.cs" Line="58" Column="4" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.FirstStepsReactiveUI.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.1DA454EA-654A-4A3D-B4B0-CE7C0A54577B" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

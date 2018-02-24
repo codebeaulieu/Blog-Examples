@@ -10,8 +10,13 @@ using Xamarin.Forms;
 namespace FirstStepsReactiveUI.ViewModels
 {
 	public class Dashboard : ViewModelBase<Dashboard>
-	{ 
-		// 1
+	{  
+        [DataMember]
+        public string Title
+        {
+            get { return "My Dashboard"; }
+        }
+ 
 		string _statusMessage;
 
 		[DataMember]
@@ -31,21 +36,29 @@ namespace FirstStepsReactiveUI.ViewModels
 		}
 
 		[DataMember]
-		public List<string> ImageList { get; set; } = new List<string>();
- 
-		[DataMember]
-		public string Title
-		{
-			get { return "My Dashboard"; }
-		}
-		// 2
-		public ReactiveCommand<Unit, Unit> InitializeCommand { get; private set; } 
+		public List<string> ImageList { get; set; }
 
-		// 3
-		protected override void RegisterObservables()
+		protected override void Initialize()
 		{
-			// 4
-			InitializeCommand = ReactiveCommand.CreateFromTask(async _ => 
+            base.Initialize();
+            ImageList = new List<string>();
+		}
+ 
+		ReactiveCommand<Unit, Unit> _initializeCommand;
+        [DataMember]
+        public ReactiveCommand<Unit, Unit> InitializeCommand
+        {
+            get { return _initializeCommand; }
+            private set
+            {
+                this.RaiseAndSetIfChanged(ref _initializeCommand, value);
+            }
+        }
+ 
+        protected override void RegisterObservables()
+        {
+            
+            InitializeCommand = ReactiveCommand.CreateFromTask(async _ => 
 			{
 				// initialization logic goes here 
 				StatusMessage = "Initializing";
@@ -66,12 +79,12 @@ namespace FirstStepsReactiveUI.ViewModels
 				ImageList.Add("codebeaulieu.png");
 				ImageList.Add("Rx_Logo_512.png");
 
-				await Task.Delay(1000);
-				await Task.FromResult(Unit.Default);
+				await Task.Delay(1000); 
 
-			}).DisposeWith(ViewModelBindings.Value);
+			})
+            .DisposeWith(ViewModelBindings);
 
-			// 5
+	 
 			Observable
 				.Interval(TimeSpan.FromMilliseconds(500))
 				.ObserveOn(RxApp.MainThreadScheduler)
@@ -83,9 +96,10 @@ namespace FirstStepsReactiveUI.ViewModels
 					Random random = new Random();
 					int number = random.Next(0, ImageList.Count);
 
-					return ImageSource.FromFile(ImageList[number]); 
-					 
-			}).BindTo(this, x => x.CurrentImage);
+					return ImageSource.FromFile(ImageList[number]);  
+    			})
+                .BindTo(this, x => x.CurrentImage)
+                .DisposeWith(ViewModelBindings);
  
 		}
 	}

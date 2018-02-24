@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using FirstStepsReactiveUI;
 using ReactiveUI;
 using Xamarin.Forms;
@@ -57,14 +58,15 @@ namespace FirstStepsReactiveUI.UserInterface.Pages
 		protected override void BindControls()
 		{
 			this.OneWayBind(ViewModel, vm => vm.Title, c => c.Title)
-			    .DisposeWith(ControlBindings.Value);
+			    .DisposeWith(ControlBindings);
 
 			this.Bind(ViewModel, x => x.StatusMessage, c => c._status.Text)
-			    .DisposeWith(ControlBindings.Value);
+			    .DisposeWith(ControlBindings);
 
 			this.WhenAnyValue(x => x.ViewModel.CurrentImage)
+                .ObserveOn(RxApp.MainThreadScheduler)
 				.BindTo(this, x => x._images.Source)
-			    .DisposeWith(ControlBindings.Value);  
+			    .DisposeWith(ControlBindings);  
 		} 
 	}
 }
