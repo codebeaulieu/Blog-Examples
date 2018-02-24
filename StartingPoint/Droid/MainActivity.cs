@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace FirstStepsReactiveUI.Droid
 {
@@ -21,6 +22,8 @@ namespace FirstStepsReactiveUI.Droid
 			base.OnCreate(bundle);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            DependencyService.Register<Interfaces.IRendererResolver, Services.RendererResolver>();
 
 			LoadApplication(new App());
 		}

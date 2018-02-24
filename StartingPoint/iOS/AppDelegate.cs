@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace FirstStepsReactiveUI.iOS
 {
@@ -13,6 +14,8 @@ namespace FirstStepsReactiveUI.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
+
+            DependencyService.Register<Interfaces.IRendererResolver, Services.RendererResolver>();
 
 			LoadApplication(new App());
 

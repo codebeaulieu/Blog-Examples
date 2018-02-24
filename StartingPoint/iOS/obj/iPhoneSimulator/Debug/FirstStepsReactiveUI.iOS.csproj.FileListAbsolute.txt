@@ -154,3 +154,4 @@
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/FirstStepsReactiveUI.iOS.csproj.CoreCompileInputs.cache
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/FirstStepsReactiveUI.iOS.exe
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/FirstStepsReactiveUI.iOS.pdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/bin/iPhoneSimulator/Debug/ReactiveUI.XamForms.dll.mdb
