@@ -63,12 +63,12 @@ namespace FirstStepsReactiveUI.ViewModels
 				StatusMessage = "Initializing...";
 
 				// maybe we're getting images from a server 
-				await Task.Delay(1500);
+				await Task.Delay(1500); // dont use Task.Delay in real life plz
 
 				StatusMessage = "Downloading...";
 
 				// simulate a lengthy server response
-				await Task.Delay(2500); 
+                await Task.Delay(2500); // dont use Task.Delay in real life plz
 
 				StatusMessage = "Go-Go Random Logos!";
 
@@ -77,8 +77,6 @@ namespace FirstStepsReactiveUI.ViewModels
 				ImageList.Add("reactivelogo.png");
 				ImageList.Add("888.png");
 				ImageList.Add("Rx_Logo_512.png");
-
-				await Task.Delay(1000); 
 
 			})
             .DisposeWith(ViewModelBindings);
