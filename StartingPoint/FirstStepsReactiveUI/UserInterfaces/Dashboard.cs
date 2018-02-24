@@ -27,7 +27,7 @@ namespace FirstStepsReactiveUI.UserInterface.Pages
 			_status = new Label
 			{ 
 				FontSize = 20,
-				FontFamily = Device.OnPlatform("AvenirNext-Medium", "Roboto", "Verdana"),
+				FontFamily = "AvenirNext-Medium",
 				HorizontalTextAlignment = TextAlignment.Center,
 				VerticalTextAlignment = TextAlignment.Center,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,

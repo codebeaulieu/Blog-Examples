@@ -21,7 +21,7 @@ namespace FirstStepsReactiveUI
  
 		protected ContentPageBase() : base()
 		{   
-			SetupUserInterface();  
+			SetupUserInterface();
 		}
  
         const string RendererPropertyName = "Renderer";
