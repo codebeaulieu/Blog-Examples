@@ -157,8 +157,8 @@
     <AndroidResource Include="Resources\drawable\reactivelogo.png" />
     <AndroidResource Include="Resources\drawable\xamagon.png" />
     <AndroidResource Include="Resources\drawable\eightbot.png" />
-    <AndroidResource Include="Resources\drawable\codebeaulieu.png" />
     <AndroidResource Include="Resources\drawable\Rx_Logo_512.png" />
+    <AndroidResource Include="Resources\drawable\888.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

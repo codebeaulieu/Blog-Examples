@@ -147,7 +147,6 @@
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.2/optimized/reactivelogo.png
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.2/optimized/xamagon.png
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.2/optimized/eightbot.png
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.2/optimized/codebeaulieu.png
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.2/optimized/Rx_Logo_512.png
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.2/optimized/
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/FirstStepsReactiveUI.iOS.csprojResolveAssemblyReference.cache
@@ -155,3 +154,4 @@
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/FirstStepsReactiveUI.iOS.exe
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/FirstStepsReactiveUI.iOS.pdb
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/bin/iPhoneSimulator/Debug/ReactiveUI.XamForms.dll.mdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/iOS/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.2/optimized/888.png

@@ -150,8 +150,8 @@
     <BundleResource Include="Resources\reactivelogo.png" />
     <BundleResource Include="Resources\xamagon.png" />
     <BundleResource Include="Resources\eightbot.png" />
-    <BundleResource Include="Resources\codebeaulieu.png" />
     <BundleResource Include="Resources\Rx_Logo_512.png" />
+    <BundleResource Include="Resources\888.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets')" />

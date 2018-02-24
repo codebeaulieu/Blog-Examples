@@ -76,7 +76,7 @@ namespace FirstStepsReactiveUI.ViewModels
 				ImageList.Add("xamagon.png");
 				ImageList.Add("eightbot.png");
 				ImageList.Add("reactivelogo.png");
-				ImageList.Add("codebeaulieu.png");
+				ImageList.Add("888.png");
 				ImageList.Add("Rx_Logo_512.png");
 
 				await Task.Delay(1000); 

@@ -1,72 +1,82 @@
 ﻿using System;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using FirstStepsReactiveUI;
+using System.Reactive.Linq; 
 using ReactiveUI;
 using Xamarin.Forms;
 
 namespace FirstStepsReactiveUI.UserInterface.Pages
-{
-	public class Dashboard : ContentPageBase<ViewModels.Dashboard>
-	{
-		// 1
-		Image _images;
+{ 
+    public class Dashboard : ContentPageBase<ViewModels.Dashboard>
+    { 
+        Grid _mainLayout;
 
-		Label _status;
+        Image _images;
 
-		//2
-		public Dashboard()
-		{
-			ViewModel = new ViewModels.Dashboard();
-			ViewModel.InitializeCommand.Execute();
-		}
+        Label _status;
 
-		//3
-		protected override void SetupUserInterface()
-		{ 
-			_status = new Label
-			{ 
-				FontSize = 20,
-				FontFamily = "AvenirNext-Medium",
-				HorizontalTextAlignment = TextAlignment.Center,
-				VerticalTextAlignment = TextAlignment.Center,
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				VerticalOptions = LayoutOptions.Center,
-				Margin = new Thickness(0,40,0,0)
-			};
+        public Dashboard()
+        {
+            ViewModel = new ViewModels.Dashboard();
+            ViewModel?.InitializeCommand.Execute();
+        }
 
-			_images = new Image {
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Aspect = Aspect.AspectFit, 
-				HeightRequest = 350 
-			};
+        protected override void SetupUserInterface()
+        {
 
-			Content = new StackLayout 
-			{
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Padding = 20,
-				Children = { 
-					_status,
-					_images
-				}
-			};
-		}
+            NavigationPage.SetBackButtonTitle(this, "Back");
 
-		//4
-		protected override void BindControls()
-		{
-			this.OneWayBind(ViewModel, vm => vm.Title, c => c.Title)
-			    .DisposeWith(ControlBindings);
+            _mainLayout = new Grid
+            {
+                BackgroundColor = Color.Transparent,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(16, 24, 16, 8), 
+                ColumnDefinitions = new ColumnDefinitionCollection {
+                    new ColumnDefinition { Width = GridLength.Star },
+                },
+                RowDefinitions = new RowDefinitionCollection {
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength(3, GridUnitType.Star) },
+                }
+            };
 
-			this.Bind(ViewModel, x => x.StatusMessage, c => c._status.Text)
-			    .DisposeWith(ControlBindings);
+            _status = new Label
+            {
+                FontSize = 20,
+                FontFamily = "AvenirNext-Medium",
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment = TextAlignment.Center,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.EndAndExpand 
+            };
 
-			this.WhenAnyValue(x => x.ViewModel.CurrentImage)
+            _images = new Image
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Aspect = Aspect.AspectFit,
+                HeightRequest = 350
+            };
+
+            _mainLayout.Children.Add(_status, 0, 0);
+
+            _mainLayout.Children.Add(_images, 0, 1);
+
+            Content = _mainLayout;
+        }
+
+        protected override void BindControls()
+        {
+            this.OneWayBind(ViewModel, vm => vm.Title, c => c.Title)
+                .DisposeWith(ControlBindings);
+
+            this.Bind(ViewModel, x => x.StatusMessage, c => c._status.Text)
+                .DisposeWith(ControlBindings);
+
+            this.WhenAnyValue(x => x.ViewModel.CurrentImage)
                 .ObserveOn(RxApp.MainThreadScheduler)
-				.BindTo(this, x => x._images.Source)
-			    .DisposeWith(ControlBindings);  
-		} 
-	}
+                .BindTo(this, x => x._images.Source)
+                .DisposeWith(ControlBindings);  
+        }
+    }
+    
 }
