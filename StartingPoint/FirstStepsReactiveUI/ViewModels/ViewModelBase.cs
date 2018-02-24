@@ -16,35 +16,60 @@ namespace FirstStepsReactiveUI
          
 		public bool IsDisposed { get; private set; } 
  
+        bool _bindingsRegistered;
+
+        [DataMember]
+        public bool BindingsRegistered
+        {
+            get { return _bindingsRegistered; }
+            protected set { this.RaiseAndSetIfChanged(ref _bindingsRegistered, value); }
+        }
+
 		protected abstract void RegisterObservables();
 
         protected virtual void Initialize() { } 
-		 
+  
 		protected ViewModelBase()
 		{
             Initialize();
 			RegisterObservables(); 
 		} 
  
+        public void RegisterBindings()
+        {
+            if (!BindingsRegistered)
+            {
+                RegisterObservables();
+                BindingsRegistered = true;
+            }
+        }
+
+        public void UnregisterBindings()
+        { 
+            if (ViewModelBindings?.IsValueCreated ?? false)
+                ViewModelBindings?.Value?.Clear();
+
+            BindingsRegistered = false;
+        }
+
 		#region IDisposable implementation
 
 		public void Dispose()
-		{ 
-			if (!IsDisposed)
-			{
-				IsDisposed = true;
-				Dispose(true);
-				GC.SuppressFinalize(true);
-			}
+		{   
+			Dispose(true);
+			GC.SuppressFinalize(true); 
 		}
 
-		protected virtual void Dispose(bool disposing)
-		{
-			if (disposing) 
-            
-            if (ViewModelBindings?.IsValueCreated ?? false)
-                ViewModelBindings?.Value?.Dispose();
-		}
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing && !IsDisposed)
+            {
+                IsDisposed = true;
+  
+                if (ViewModelBindings?.IsValueCreated ?? false)
+                    ViewModelBindings?.Value?.Dispose();
+            }
+        }
 
         #endregion
 	} 

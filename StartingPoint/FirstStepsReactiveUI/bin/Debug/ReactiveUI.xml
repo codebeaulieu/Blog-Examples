@@ -382,7 +382,7 @@
             <para>
             Note that handlers are not required to handle an interaction. They can choose to ignore it, leaving it
             for some other handler to handle. If no handler handles the interaction, the <see cref="M:ReactiveUI.Interaction`2.Handle(`0)"/> method
-            will throw an <see cref="!:UnhandledInteractionException"/>.
+            will throw an <see cref="T:ReactiveUI.UnhandledInteractionException`2"/>.
             </para>
             </remarks>
             <typeparam name="TInput">
@@ -459,7 +459,7 @@
             <para>
             This method passes the interaction through to relevant handlers in reverse order of registration,
             ceasing once any handler handles the interaction. If the interaction remains unhandled after all
-            relevant handlers have executed, an <see cref="!:UnhandledInteractionException"/> is thrown.
+            relevant handlers have executed, an <see cref="T:ReactiveUI.UnhandledInteractionException`2"/> is thrown.
             </para>
             </remarks>
             <param name="input">
@@ -467,7 +467,7 @@
             </param>
             <returns>
             An observable that ticks when the interaction completes, or throws an
-            <see cref="!:UnhandledInteractionException"/> if no handler handles the interaction.
+            <see cref="T:ReactiveUI.UnhandledInteractionException`2"/> if no handler handles the interaction.
             </returns>
         </member>
         <member name="M:ReactiveUI.Interaction`2.GetHandlers">
@@ -1222,11 +1222,16 @@
             Changes to properties not marked with DataMember will not trigger the
             object to be saved.
             </summary>
-            <param name="doPersist">The asynchronous method to call to save the
-            object to disk.</param>
-            <param name="interval">The interval to save the object on. Note that
-            if an object is constantly changing, it is possible that it will never
-            be saved.</param>
+            <param name="This">
+            The reactive object to watch for changes
+            </param>
+            <param name="doPersist">
+            The asynchronous method to call to save the object to disk.
+            </param>
+            <param name="interval">
+            The interval to save the object on. Note that if an object is constantly changing, 
+            it is possible that it will never be saved.
+            </param>
             <returns>A Disposable to disable automatic persistence.</returns>
         </member>
         <member name="M:ReactiveUI.AutoPersistHelper.AutoPersist``2(``0,System.Func{``0,System.IObservable{System.Reactive.Unit}},System.IObservable{``1},System.Nullable{System.TimeSpan})">
@@ -1237,13 +1242,19 @@
             Changes to properties not marked with DataMember will not trigger the
             object to be saved.
             </summary>
-            <param name="doPersist">The asynchronous method to call to save the
-            object to disk.</param>
-            <param name="manualSaveSignal">When invoked, the object will be saved
-            regardless of whether it has changed.</param>
-            <param name="interval">The interval to save the object on. Note that
-            if an object is constantly changing, it is possible that it will never
-            be saved.</param>
+            <param name="This">
+            The reactive object to watch for changes
+            </param>
+            <param name="doPersist">
+            The asynchronous method to call to save the object to disk.
+            </param>
+            <param name="manualSaveSignal">
+            When invoked, the object will be saved regardless of whether it has changed.
+            </param>
+            <param name="interval">
+            The interval to save the object on. Note that if an object is constantly changing, 
+            it is possible that it will never be saved.
+            </param>
             <returns>A Disposable to disable automatic persistence.</returns>
         </member>
         <member name="M:ReactiveUI.AutoPersistHelper.AutoPersistCollection``1(ReactiveUI.IReactiveCollection{``0},System.Func{``0,System.IObservable{System.Reactive.Unit}},System.Nullable{System.TimeSpan})">
@@ -1251,11 +1262,16 @@
             Apply AutoPersistence to all objects in a collection. Items that are
             no longer in the collection won't be persisted anymore.
             </summary>
-            <param name="doPersist">The asynchronous method to call to save the
-            object to disk.</param>
-            <param name="interval">The interval to save the object on. Note that
-            if an object is constantly changing, it is possible that it will never
-            be saved.</param>
+            <param name="This">
+            The reactive collection to watch for changes
+            </param>
+            <param name="doPersist">
+            The asynchronous method to call to save the object to disk.
+            </param>
+            <param name="interval">
+            The interval to save the object on. Note that if an object is constantly changing, 
+            it is possible that it will never be saved.
+            </param>
             <returns>A Disposable to disable automatic persistence.</returns>
         </member>
         <member name="M:ReactiveUI.AutoPersistHelper.AutoPersistCollection``2(ReactiveUI.IReactiveCollection{``0},System.Func{``0,System.IObservable{System.Reactive.Unit}},System.IObservable{``1},System.Nullable{System.TimeSpan})">
@@ -1263,13 +1279,19 @@
             Apply AutoPersistence to all objects in a collection. Items that are
             no longer in the collection won't be persisted anymore.
             </summary>
-            <param name="doPersist">The asynchronous method to call to save the
-            object to disk.</param>
-            <param name="manualSaveSignal">When invoked, the object will be saved
-            regardless of whether it has changed.</param>
-            <param name="interval">The interval to save the object on. Note that
-            if an object is constantly changing, it is possible that it will never
-            be saved.</param>
+            <param name="This">
+            The reactive collection to watch for changes
+            </param>
+            <param name="doPersist">
+            The asynchronous method to call to save the object to disk.
+            </param>
+            <param name="manualSaveSignal">
+            When invoked, the object will be saved regardless of whether it has changed.
+            </param>
+            <param name="interval">
+            The interval to save the object on. Note that if an object is constantly changing, 
+            it is possible that it will never be saved.
+            </param>
             <returns>A Disposable to disable automatic persistence.</returns>
         </member>
         <member name="M:ReactiveUI.AutoPersistHelper.ActOnEveryObject``1(ReactiveUI.IReactiveCollection{``0},System.Action{``0},System.Action{``0})">
@@ -1278,10 +1300,15 @@
             removed from a collection. This class correctly handles both when
             a collection is initialized, as well as when the collection is Reset.
             </summary>
-            <param name="onAdd">A method to be called when an object is added
-            to the collection.</param>
-            <param name="onRemove">A method to be called when an object is removed
-            from the collection.</param>
+            <param name="This">
+            The reactive collection to watch for changes
+            </param>
+            <param name="onAdd">
+            A method to be called when an object is added to the collection.
+            </param>
+            <param name="onRemove">
+            A method to be called when an object is removed from the collection.
+            </param>
             <returns>A Disposable that deactivates this behavior.</returns>
         </member>
         <member name="T:ReactiveUI.EqualityTypeConverter">
@@ -1884,49 +1911,62 @@
             ObservableAsPropertyHelper is a class to help ViewModels implement
             "output properties", that is, a property that is backed by an
             Observable. The property will be read-only, but will still fire change
-            notifications. This class can be created directly, but is more often created via the
-            ToProperty and ObservableToProperty extension methods.
+            notifications. This class can be created directly, but is more often created 
+            via the <see cref="T:ReactiveUI.OAPHCreationHelperMixin" /> extension methods.    
             </summary>
         </member>
         <member name="M:ReactiveUI.ObservableAsPropertyHelper`1.#ctor(System.IObservable{`0},System.Action{`0},`0,System.Boolean,System.Reactive.Concurrency.IScheduler)">
             <summary>
             Constructs an ObservableAsPropertyHelper object.
             </summary>
-            <param name="observable">The Observable to base the property on.</param>
-            <param name="onChanged">The action to take when the property
-            changes, typically this will call the ViewModel's
-            RaisePropertyChanged method.</param>
-            <param name="initialValue">The initial value of the property.</param>
+            <param name="observable">
+            The Observable to base the property on.
+            </param>
+            <param name="onChanged">
+            The action to take when the property changes, typically this will call the 
+            ViewModel's RaisePropertyChanged method.
+            </param>
+            <param name="initialValue">
+            The initial value of the property.
+            </param>
             <param name="deferSubscription">
             A value indicating whether the <see cref="T:ReactiveUI.ObservableAsPropertyHelper`1"/> 
             should defer the subscription to the <paramref name="observable"/> source 
             until the first call to <see cref="P:ReactiveUI.ObservableAsPropertyHelper`1.Value"/>, or if it should immediately 
             subscribe to the the <paramref name="observable"/> source.
             </param>
-            <param name="scheduler">The scheduler that the notifications will be
-            provided on - this should normally be a Dispatcher-based scheduler
+            <param name="scheduler">
+            The scheduler that the notifications will be provided on - 
+            this should normally be a Dispatcher-based scheduler
             </param>
         </member>
         <member name="M:ReactiveUI.ObservableAsPropertyHelper`1.#ctor(System.IObservable{`0},System.Action{`0},System.Action{`0},`0,System.Boolean,System.Reactive.Concurrency.IScheduler)">
             <summary>
             Constructs an ObservableAsPropertyHelper object.
             </summary>
-            <param name="observable">The Observable to base the property on.</param>
-            <param name="onChanged">The action to take when the property
-            changes, typically this will call the ViewModel's
-            RaisePropertyChanged method.</param>
-            <param name="onChanging">The action to take when the property
-            changes, typically this will call the ViewModel's
-            RaisePropertyChanging method.</param>
-            <param name="initialValue">The initial value of the property.</param>
+            <param name="observable">
+            The Observable to base the property on.
+            </param>
+            <param name="onChanged">
+            The action to take when the property changes, typically this will call 
+            the ViewModel's RaisePropertyChanged method.
+            </param>
+            <param name="onChanging">
+            The action to take when the property changes, typically this will call 
+            the ViewModel's RaisePropertyChanging method.
+            </param>
+            <param name="initialValue">
+            The initial value of the property.
+            </param>
             <param name="deferSubscription">
             A value indicating whether the <see cref="T:ReactiveUI.ObservableAsPropertyHelper`1"/> 
             should defer the subscription to the <paramref name="observable"/> source 
             until the first call to <see cref="P:ReactiveUI.ObservableAsPropertyHelper`1.Value"/>, or if it should immediately 
             subscribe to the the <paramref name="observable"/> source.
             </param>
-            <param name="scheduler">The scheduler that the notifications will be
-            provided on - this should normally be a Dispatcher-based scheduler
+            <param name="scheduler">
+            The scheduler that the notifications will provided on - this 
+            should normally be a Dispatcher-based scheduler
             </param>
         </member>
         <member name="P:ReactiveUI.ObservableAsPropertyHelper`1.Value">
@@ -1940,16 +1980,29 @@
             internal state.
             </summary>
         </member>
+        <member name="M:ReactiveUI.ObservableAsPropertyHelper`1.Dispose">
+            <summary>
+            Disposes this ObservableAsPropertyHelper
+            </summary>
+        </member>
         <member name="M:ReactiveUI.ObservableAsPropertyHelper`1.Default(`0,System.Reactive.Concurrency.IScheduler)">
             <summary>
             Constructs a "default" ObservableAsPropertyHelper object. This is
             useful for when you will initialize the OAPH later, but don't want
             bindings to access a null OAPH at startup.
             </summary>
-            <param name="initialValue">The initial (and only) value of the property.</param>
-            <param name="scheduler">The scheduler that the notifications will be
-            provided on - this should normally be a Dispatcher-based scheduler
+            <param name="initialValue">
+            The initial (and only) value of the property.
             </param>
+            <param name="scheduler">
+            The scheduler that the notifications will be provided on - this should 
+            normally be a Dispatcher-based scheduler
+            </param>
+        </member>
+        <member name="T:ReactiveUI.OAPHCreationHelperMixin">
+            <summary>
+            A collection of helpers to aid working with observable properties
+            </summary>
         </member>
         <member name="M:ReactiveUI.OAPHCreationHelperMixin.ToProperty``2(System.IObservable{``1},``0,System.Linq.Expressions.Expression{System.Func{``0,``1}},``1,System.Boolean,System.Reactive.Concurrency.IScheduler)">
             <summary>
@@ -1957,21 +2010,32 @@
             automatically provides the onChanged method to raise the property
             changed notification.         
             </summary>
-            <param name="source">The ReactiveObject that has the property</param>
-            <param name="property">An Expression representing the property (i.e.
-            'x => x.SomeProperty'</param>
-            <param name="initialValue">The initial value of the property.</param>
+            <param name="This">
+            The observable to convert to an ObservableAsPropertyHelper
+            </param>
+            <param name="source">
+            The ReactiveObject that has the property
+            </param>
+            <param name="property">
+            An Expression representing the property (i.e. <c>x => x.SomeProperty</c>)
+            </param>
+            <param name="initialValue">
+            The initial value of the property.
+            </param>
             <param name="deferSubscription">
             A value indicating whether the <see cref="T:ReactiveUI.ObservableAsPropertyHelper`1"/> 
-            should defer the subscription to the <paramref name="observable"/> source 
-            until the first call to <see cref="!:Value"/>, or if it should immediately 
-            subscribe to the the <paramref name="observable"/> source.
+            should defer the subscription to the <paramref name="This"/> source 
+            until the first call to <see cref="P:ReactiveUI.ObservableAsPropertyHelper`1.Value"/>,
+            or if it should immediately subscribe to the the <paramref name="This"/> source.
             </param>
-            <param name="scheduler">The scheduler that the notifications will be
-            provided on - this should normally be a Dispatcher-based scheduler
+            <param name="scheduler">
+            The scheduler that the notifications will be provided on - this should normally 
+            be a Dispatcher-based scheduler
             </param>
-            <returns>An initialized ObservableAsPropertyHelper; use this as the
-            backing field for your property.</returns>
+            <returns>
+            An initialized ObservableAsPropertyHelper; use this as the backing field 
+            for your property.
+            </returns>
         </member>
         <member name="M:ReactiveUI.OAPHCreationHelperMixin.ToProperty``2(System.IObservable{``1},``0,System.Linq.Expressions.Expression{System.Func{``0,``1}},ReactiveUI.ObservableAsPropertyHelper{``1}@,``1,System.Boolean,System.Reactive.Concurrency.IScheduler)">
             <summary>
@@ -1979,34 +2043,60 @@
             automatically provides the onChanged method to raise the property
             changed notification.         
             </summary>
-            <param name="source">The ReactiveObject that has the property</param>
-            <param name="property">An Expression representing the property (i.e.
-            'x => x.SomeProperty'</param>
-            <param name="initialValue">The initial value of the property.</param>
+            <param name="This">
+            The observable to convert to an ObservableAsPropertyHelper
+            </param>
+            <param name="source">
+            The ReactiveObject that has the property
+            </param>
+            <param name="property">
+            An Expression representing the property (i.e. <c>x => x.SomeProperty</c>)
+            </param>
+            <param name="result">
+            An out param matching the return value, provided for convenience
+            </param>
+            <param name="initialValue">
+            The initial value of the property.
+            </param>
             <param name="deferSubscription">
             A value indicating whether the <see cref="T:ReactiveUI.ObservableAsPropertyHelper`1"/> 
-            should defer the subscription to the <paramref name="observable"/> source 
-            until the first call to <see cref="!:Value"/>, or if it should immediately 
-            subscribe to the the <paramref name="observable"/> source.
+            should defer the subscription to the <paramref name="This"/> source 
+            until the first call to <see cref="P:ReactiveUI.ObservableAsPropertyHelper`1.Value"/>, 
+            or if it should immediately subscribe to the the <paramref name="This"/> source.
             </param>
-            <param name="scheduler">The scheduler that the notifications will be
-            provided on - this should normally be a Dispatcher-based scheduler
+            <param name="scheduler">
+            The scheduler that the notifications will be provided on - this should 
+            normally be a Dispatcher-based scheduler
             </param>
-            <returns>An initialized ObservableAsPropertyHelper; use this as the
-            backing field for your property.</returns>
+            <returns>
+            An initialized ObservableAsPropertyHelper; use this as the backing 
+            field for your property.
+            </returns>
+        </member>
+        <member name="T:ReactiveUI.ObservedChangedMixin">
+            <summary>
+            A collection of helpers for <see cref="T:ReactiveUI.IObservedChange`2"/>.
+            </summary>
         </member>
         <member name="M:ReactiveUI.ObservedChangedMixin.GetPropertyName``2(ReactiveUI.IObservedChange{``0,``1})">
             <summary>
             Returns the name of a property which has been changed.
             </summary>
-            <returns>The name of the property which has change</returns>
+            <returns>
+            The name of the property which has changed.
+            </returns>
         </member>
         <member name="M:ReactiveUI.ObservedChangedMixin.GetValue``2(ReactiveUI.IObservedChange{``0,``1})">
             <summary>
             Returns the current value of a property given a notification that
             it has changed.
             </summary>
-            <returns>The current value of the property</returns>
+            <param name="This">
+            The <see cref="T:ReactiveUI.IObservedChange`2"/> instance to get the value of.
+            </param>
+            <returns>
+            The current value of the property
+            </returns>
         </member>
         <member name="M:ReactiveUI.ObservedChangedMixin.TryGetValue``2(ReactiveUI.IObservedChange{``0,``1},``1@)">
             <summary>
@@ -2014,28 +2104,46 @@
             notification that it has changed. If any property in the
             property expression is null, false is returned.
             </summary>
-            <param name="changeValue">The value of the property
-            expression.</param>
-            <returns>True if the entire expression was able to be followed,
-            false otherwise</returns>
+            <param name="This">
+            The <see cref="T:ReactiveUI.IObservedChange`2"/> instance to get the value of
+            </param>
+            <param name="changeValue">
+            The value of the property expression.
+            </param>
+            <returns>
+            True if the entire expression was able to be followed, false otherwise.
+            </returns>
         </member>
         <member name="M:ReactiveUI.ObservedChangedMixin.SetValueToProperty``3(ReactiveUI.IObservedChange{``0,``1},``2,System.Linq.Expressions.Expression{System.Func{``2,``1}})">
             <summary>
             Given a fully filled-out IObservedChange object, SetValueToProperty
             will apply it to the specified object (i.e. it will ensure that
             target.property == This.GetValue() and "replay" the observed change
-            onto another object)
+            onto another object).
             </summary>
-            <param name="target">The target object to apply the change to.</param>
-            <param name="property">The target property to apply the change to.</param>
+            <param name="This">
+            The <see cref="T:ReactiveUI.IObservedChange`2"/> instance to use as a 
+            value to apply.
+            </param>
+            <param name="target">
+            The target object to apply the change to.
+            </param>
+            <param name="property">
+            The target property to apply the change to.
+            </param>
         </member>
         <member name="M:ReactiveUI.ObservedChangedMixin.Value``2(System.IObservable{ReactiveUI.IObservedChange{``0,``1}})">
             <summary>
             Given a stream of notification changes, this method will convert 
             the property changes to the current value of the property.
             </summary>
-            <returns>An Observable representing the stream of current values of
-            the given change notification stream.</returns>
+            <param name="This">
+            The change notification stream to get the values of.
+            </param>
+            <returns>
+            An Observable representing the stream of current values of
+            the given change notification stream.
+            </returns>
         </member>
         <member name="T:ReactiveUI.IComparerBuilder`1">
             <summary>
@@ -2049,7 +2157,9 @@
             in ascending order based on the values returned by the provided selector. The selector values will be
             compared using the default comparer for the return type of the selector.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
         </member>
         <member name="M:ReactiveUI.IComparerBuilder`1.OrderBy``1(System.Func{`0,``0},System.Collections.Generic.IComparer{``0})">
             <summary>
@@ -2059,7 +2169,13 @@
             compared using the provided comparer or the default comparer for the return type of the selector if no
             comparer is specified.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
+            <param name="comparer">
+            The comparer to use when comparing the values returned by the selector. 
+            The default comparer for that type will be used if this parameter is null.
+            </param>
         </member>
         <member name="M:ReactiveUI.IComparerBuilder`1.OrderByDescending``1(System.Func{`0,``0})">
             <summary>
@@ -2068,7 +2184,9 @@
             in descending order based on the values returned by the provided selector. The selector values will be
             compared using the default comparer for the return type of the selector.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
         </member>
         <member name="M:ReactiveUI.IComparerBuilder`1.OrderByDescending``1(System.Func{`0,``0},System.Collections.Generic.IComparer{``0})">
             <summary>
@@ -2078,7 +2196,13 @@
             compared using the provided comparer or the default comparer for the return type of the selector if no
             comparer is specified.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
+            /// <param name="comparer">
+            The comparer to use when comparing the values returned by the selector. 
+            The default comparer for that type will be used if this parameter is null.
+            </param>
         </member>
         <member name="T:ReactiveUI.OrderedComparer">
             <summary>
@@ -2115,7 +2239,9 @@
             Creates a comparer that will sort elements in ascending order based on the values returned by the provided
             selector. The values will be compared using the default comparer for the return type of the selector.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
         </member>
         <member name="M:ReactiveUI.OrderedComparer`1.OrderBy``1(System.Func{`0,``0},System.Collections.Generic.IComparer{``0})">
             <summary>
@@ -2123,7 +2249,9 @@
             selector. The selector values will be compared using the provided comparer or the default comparer for the 
             return type of the selector if no comparer is specified.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
             <param name="comparer">
             The comparer to use when comparing the values returned by the selector. 
             The default comparer for that type will be used if this parameter is null.
@@ -2134,7 +2262,9 @@
             Creates a comparer that will sort elements in descending order based on the values returned by the provided
             selector. The values will be compared using the default comparer for the return type of the selector.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
         </member>
         <member name="M:ReactiveUI.OrderedComparer`1.OrderByDescending``1(System.Func{`0,``0},System.Collections.Generic.IComparer{``0})">
             <summary>
@@ -2142,11 +2272,18 @@
             selector. The selector values will be compared using the provided comparer or the default comparer for the 
             return type of the selector if no comparer is specified.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
             <param name="comparer">
             The comparer to use when comparing the values returned by the selector. 
             The default comparer for that type will be used if this parameter is null.
             </param>
+        </member>
+        <member name="T:ReactiveUI.ComparerChainingExtensions">
+            <summary>
+            Convenience class to help chain selectors onto existing parent comparers.
+            </summary>
         </member>
         <member name="M:ReactiveUI.ComparerChainingExtensions.ThenBy``2(System.Collections.Generic.IComparer{``0},System.Func{``0,``1})">
             <summary>
@@ -2155,7 +2292,12 @@
             in ascending order based on the values returned by the provided selector. The selector values will be 
             compared using the default comparer for the return type of the selector.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="parent">
+            The parent comparer to use first.
+            </param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
         </member>
         <member name="M:ReactiveUI.ComparerChainingExtensions.ThenBy``2(System.Collections.Generic.IComparer{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
             <summary>
@@ -2165,7 +2307,15 @@
             compared using the provided comparer or the default comparer for the return type of the selector if no 
             comparer is specified.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="parent">
+            The parent comparer to use first.
+            </param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
+            <param name="comparer">
+            The comparer to use when comparing the values returned by the selector. 
+            </param>
         </member>
         <member name="M:ReactiveUI.ComparerChainingExtensions.ThenByDescending``2(System.Collections.Generic.IComparer{``0},System.Func{``0,``1})">
             <summary>
@@ -2174,7 +2324,12 @@
             in descending order based on the values returned by the provided selector. The selector values will be 
             compared using the default comparer for the return type of the selector.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="parent">
+            The parent comparer to use first.
+            </param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
         </member>
         <member name="M:ReactiveUI.ComparerChainingExtensions.ThenByDescending``2(System.Collections.Generic.IComparer{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
             <summary>
@@ -2184,7 +2339,15 @@
             compared using the provided comparer or the default comparer for the return type of the selector if no 
             comparer is specified.
             </summary>
-            <param name="selector">A function supplying the values for the comparator.</param>
+            <param name="parent">
+            The parent comparer to use first.
+            </param>
+            <param name="selector">
+            A function supplying the values for the comparer.
+            </param>
+            <param name="comparer">
+            The comparer to use when comparing the values returned by the selector. 
+            </param>
         </member>
         <member name="T:ReactiveUI.POCOObservableForProperty">
             <summary>
@@ -2222,6 +2385,14 @@
             An object that can provide a hint for the converter.
             The semantics of this object is defined by the converter used.
             </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
+            </param>
+            <param name="viewToVMConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            view to viewModel property.
+            </param>
             <returns>
             An instance of <see cref="T:System.IDisposable"/> that, when disposed,
             disconnects the binding.
@@ -2256,6 +2427,18 @@
             An observable, that when signaled, indicates that the view property 
             has been changed, and that the binding should update the view model
             property accordingly.
+            </param>
+            <param name="conversionHint">
+            An object that can provide a hint for the converter.
+            The semantics of this object is defined by the converter used.
+            </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
+            </param>
+            <param name="viewToVMConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            view to viewModel property.
             </param>
             <returns>
             An instance of <see cref="T:System.IDisposable"/> that, when disposed,
@@ -2303,6 +2486,10 @@
             <typeparam name="TView">The type of the view being bound.</typeparam>
             <typeparam name="TVMProp">The type of the property bound on the view model.</typeparam>
             <typeparam name="TVProp">The type of the property bound on the view.</typeparam>
+            /// <typeparam name="TDontCare">
+            A dummy type, only the fact that <paramref name="signalViewUpdate"/> 
+            emits values is considered, not the actual values emitted.
+            </typeparam>
             <param name="view">The instance of the view to bind.</param>
             <param name="viewModel">The instance of the view model to bind.</param>
             <param name="vmProperty">
@@ -2362,6 +2549,10 @@
             An object that can provide a hint for the converter.
             The semantics of this object is defined by the converter used.
             </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
+            </param>
             <returns>
             An instance of <see cref="T:System.IDisposable"/> that, when disposed,
             disconnects the binding.
@@ -2402,16 +2593,26 @@
         <member name="M:ReactiveUI.BindingMixins.BindTo``3(System.IObservable{``0},``1,System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Object,ReactiveUI.IBindingTypeConverter)">
             <summary>
             BindTo takes an Observable stream and applies it to a target
-            property. Conceptually it is similar to "Subscribe(x =&gt;
-            target.property = x)", but allows you to use child properties
+            property. Conceptually it is similar to <c>Subscribe(x =&gt;
+            target.property = x)</c>, but allows you to use child properties
             without the null checks.
             </summary>
+            <typeparam name="TValue">The source type.</typeparam>
+            <typeparam name="TTarget">The target object type.</typeparam>
+            <typeparam name="TTValue">The type of the property on the target object.</typeparam>
+            <param name="This">The observable stream to bind to a target property</param>
             <param name="target">The target object whose property will be set.</param>
-            <param name="property">An expression representing the target
-            property to set. This can be a child property (i.e. x.Foo.Bar.Baz).</param>
+            <param name="property">
+            An expression representing the target property to set. 
+            This can be a child property (i.e. <c>x.Foo.Bar.Baz</c>).
+            </param>
             <param name="conversionHint">
             An object that can provide a hint for the converter.
             The semantics of this object is defined by the converter used.
+            </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
             </param>
             <returns>An object that when disposed, disconnects the binding.</returns>
         </member>
@@ -2458,6 +2659,14 @@
             <param name="conversionHint">
             An object that can provide a hint for the converter.
             The semantics of this object is defined by the converter used.
+            </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
+            </param>
+            <param name="viewToVMConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            view to viewModel property.
             </param>
             <returns>
             An instance of <see cref="T:System.IDisposable"/> that, when disposed,
@@ -2540,10 +2749,14 @@
             An object that can provide a hint for the converter.
             The semantics of this object is defined by the converter used.
             </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
+            </param>
             <returns>
             An instance of <see cref="T:System.IDisposable"/> that, when disposed,
             disconnects the binding.
-            </returns>
+            </returns>      
             <exception cref="T:System.ArgumentException">
             There is no registered converter from <typeparamref name="TVMProp"/> to <typeparamref name="TVProp"/>.
             </exception>
@@ -2584,14 +2797,30 @@
         <member name="M:ReactiveUI.IPropertyBinderImplementation.BindTo``3(System.IObservable{``0},``1,System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Object,ReactiveUI.IBindingTypeConverter)">
             <summary>
             BindTo takes an Observable stream and applies it to a target
-            property. Conceptually it is similar to "Subscribe(x =&gt;
-            target.property = x)", but allows you to use child properties
+            property. Conceptually it is similar to <c>Subscribe(x =&gt;
+            target.property = x)</c>, but allows you to use child properties
             without the null checks.
             </summary>
+            <param name="This">The target observable to bind to.</param>
             <param name="target">The target object whose property will be set.</param>
-            <param name="property">An expression representing the target
-            property to set. This can be a child property (i.e. x.Foo.Bar.Baz).</param>
+            <param name="property">
+            An expression representing the target property to set. 
+            This can be a child property (i.e. <c>x.Foo.Bar.Baz</c>).
+            </param>
+            <param name="conversionHint">
+            An object that can provide a hint for the converter.
+            The semantics of this object is defined by the converter used.
+            </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
+            </param>  
             <returns>An object that when disposed, disconnects the binding.</returns>
+        </member>
+        <member name="T:ReactiveUI.PropertyBinderImplementation">
+            <summary>
+            Provides methods to bind properties to observables.
+            </summary>
         </member>
         <member name="M:ReactiveUI.PropertyBinderImplementation.Bind``5(``0,``1,System.Linq.Expressions.Expression{System.Func{``0,``2}},System.Linq.Expressions.Expression{System.Func{``1,``3}},System.IObservable{``4},System.Object,ReactiveUI.IBindingTypeConverter,ReactiveUI.IBindingTypeConverter)">
             <summary>
@@ -2624,7 +2853,7 @@
             
             If it is left null, the framework will attempt to automagically figure out
             the control and property that is to be bound, by looking for a control of the
-            same name as the <see cref="!:vmProperty"/>, and its most natural property.
+            same name as the <paramref name="vmProperty"/>, and its most natural property.
             </param>
             <param name="signalViewUpdate">
             An observable, that when signaled, indicates that the view property 
@@ -2634,6 +2863,14 @@
             <param name="conversionHint">
             An object that can provide a hint for the converter.
             The semantics of this object is defined by the converter used.
+            </param>
+            <param name="vmToViewConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            viewModel to view property.
+            </param>
+            <param name="viewToVMConverterOverride">
+            An optional <see cref="T:ReactiveUI.IBindingTypeConverter"/> to use when converting from the 
+            view to viewModel property.
             </param>
             <returns>
             An instance of <see cref="T:System.IDisposable"/> that, when disposed,
@@ -2656,7 +2893,7 @@
             <param name="viewModel">The instance of the view model to bind.</param>
             <param name="vmProperty">
             An expression indicating the property that is bound on the view model.
-            This can be a chain of properties of the form <code>vm =&gt; vm.Foo.Bar.Baz</code>
+            This can be a chain of properties of the form <c>vm =&gt; vm.Foo.Bar.Baz</c>
             and the binder will attempt to subscribe to changes on each recursively.
             </param>
             <param name="viewProperty">
@@ -2709,11 +2946,15 @@
             
             If it is left null, the framework will attempt to automagically figure out
             the control and property that is to be bound, by looking for a control of the
-            same name as the <see cref="!:vmProperty"/>, and its most natural property.
+            same name as the <paramref name="vmProperty"/>, and its most natural property.
             </param>
             <param name="conversionHint">
             An object that can provide a hint for the converter.
             The semantics of this object is defined by the converter used.
+            </param>
+            <param name="vmToViewConverterOverride">
+            Delegate to convert the value of the view model's property's type to a value of the
+            view's property's type.
             </param>
             <returns>
             An instance of <see cref="T:System.IDisposable"/> that, when disposed,
@@ -2749,7 +2990,7 @@
             
             If it is left null, the framework will attempt to automagically figure out
             the control and property that is to be bound, by looking for a control of the
-            same name as the <see cref="!:vmProperty"/>, and its most natural property.
+            same name as the <paramref name="vmProperty"/>, and its most natural property.
             </param>
             <param name="selector">
             A function that will be used to transform the values of the property on the view model
@@ -2763,20 +3004,27 @@
         <member name="M:ReactiveUI.PropertyBinderImplementation.BindTo``3(System.IObservable{``0},``1,System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Object,ReactiveUI.IBindingTypeConverter)">
             <summary>
             BindTo takes an Observable stream and applies it to a target
-            property. Conceptually it is similar to "Subscribe(x =>
-            target.property = x)", but allows you to use child properties
+            property. Conceptually it is similar to <c>Subscribe(x =&gt;
+            target.property = x)</c>, but allows you to use child properties
             without the null checks.
             </summary>
+            <typeparam name="TValue">The source type.</typeparam>
+            <typeparam name="TTarget">The target object type.</typeparam>
+            <typeparam name="TTValue">The type of the property on the target object.</typeparam>
             <param name="target">The target object whose property will be set.</param>
-            <param name="property">An expression representing the target
-            property to set. This can be a child property (i.e. x.Foo.Bar.Baz).</param>
+            <param name="property">
+            An expression representing the target property to set. 
+            This can be a child property (i.e. <c>x.Foo.Bar.Baz</c>).</param>
+            <param name="This">The observable to apply to the target property.</param>
+            <param name="conversionHint">
+            An object that can provide a hint for the converter.
+            The semantics of this object is defined by the converter used.
+            </param>
+            <param name="vmToViewConverterOverride">
+            Delegate to convert the value of the view model's property's type to a value of the
+            view's property's type.
+            </param>
             <returns>An object that when disposed, disconnects the binding.</returns>
-            <param name="This">This.</param>
-            <param name="conversionHint">Conversion hint.</param>
-            <param name="vmToViewConverterOverride">Vm to view converter override.</param>
-            <typeparam name="TValue">The 1st type parameter.</typeparam>
-            <typeparam name="TTarget">The 2nd type parameter.</typeparam>
-            <typeparam name="TTValue">The 3rd type parameter.</typeparam>
         </member>
         <member name="T:ReactiveUI.ReactiveDerivedCollection`1">
             <summary>
@@ -2846,18 +3094,27 @@
             Calculates a new destination for an updated item that's already in the list.
             </summary>
         </member>
+        <member name="T:ReactiveUI.ReactiveCollectionMixins">
+            <summary>
+            Extension methods to create collections from observables
+            </summary>
+        </member>
         <member name="M:ReactiveUI.ReactiveCollectionMixins.CreateCollection``1(System.IObservable{``0},System.Reactive.Concurrency.IScheduler)">
             <summary>
             Creates a collection based on an an Observable by adding items
             provided until the Observable completes. This method guarantees that
             items are always added in the context of the provided scheduler.
             </summary>
-            <param name="fromObservable">The Observable whose items will be put
-            into the new collection.</param>
-            <param name="scheduler">Optionally specifies the scheduler on which
-            the collection will be populated. Defaults to the main scheduler.</param>
-            <returns>A new collection which will be populated with the
-            Observable.</returns>
+            <param name="fromObservable">
+            The Observable whose items will be put into the new collection.
+            </param>
+            <param name="scheduler">
+            Optionally specifies the scheduler on which
+            the collection will be populated. Defaults to the main scheduler.
+            </param>
+            <returns>
+            A new collection which will be populated with the Observable.
+            </returns>
         </member>
         <member name="M:ReactiveUI.ReactiveCollectionMixins.CreateCollection``1(System.IObservable{``0},System.Nullable{System.TimeSpan},System.Action{System.Exception},System.Reactive.Concurrency.IScheduler)">
             <summary>
@@ -2867,16 +3124,28 @@
             set, this method will leak a Timer. This method also guarantees that
             items are always added in the context of the provided scheduler.
             </summary>
-            <param name="fromObservable">The Observable whose items will be put
-            into the new collection.</param>
-            <param name="onError">The handler for errors from the Observable. If
-            not specified, an error will go to DefaultExceptionHandler.</param>
-            <param name="withDelay">If set, items will be populated in the
-            collection no faster than the delay provided.</param>
-            <param name="scheduler">Optionally specifies the scheduler on which
-            the collection will be populated. Defaults to the main scheduler.</param>
-            <returns>A new collection which will be populated with the
-            Observable.</returns>
+            <param name="fromObservable">
+            The Observable whose items will be put into the new collection.
+            </param>
+            <param name="onError">
+            The handler for errors from the Observable. If not specified, 
+            an error will go to DefaultExceptionHandler.
+            </param>
+            <param name="withDelay">
+            If set, items will be populated in the collection no faster than the delay provided.
+            </param>
+            <param name="scheduler">
+            Optionally specifies the scheduler on which the collection will be populated. 
+            Defaults to the main scheduler.
+            </param>
+            <returns>
+            A new collection which will be populated with the Observable.
+            </returns>
+        </member>
+        <member name="T:ReactiveUI.ObservableCollectionMixin">
+            <summary>
+            Extension methods to create collections that "follow" other collections.
+            </summary>
         </member>
         <member name="M:ReactiveUI.ObservableCollectionMixin.CreateDerivedCollection``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Action{``1},System.Func{``0,System.Boolean},System.Func{``1,``1,System.Int32},System.IObservable{``2},System.Reactive.Concurrency.IScheduler)">
              <summary>
@@ -2887,24 +3156,37 @@
             
              Note that even though this method attaches itself to any 
              IEnumerable, it will only detect changes from objects implementing
-             INotifyCollectionChanged (like ReactiveList). If your source
-             collection doesn't implement this, signalReset is the way to signal
-             the derived collection to reorder/refilter itself.
+             <see cref="T:System.Collections.Specialized.INotifyCollectionChanged"/> (like <see cref="T:ReactiveUI.ReactiveList`1"/>). 
+             If your source collection doesn't implement this, <paramref name="signalReset"/> 
+             is the way to signal the derived collection to reorder/refilter itself.
              </summary>
-             <param name="selector">A Select function that will be run on each
-             item.</param>
-             <param name="onRemoved">An action that is called on each item when
-             it is removed.</param>
-             <param name="filter">A filter to determine whether to exclude items 
-             in the derived collection.</param>
-             <param name="orderer">A comparator method to determine the ordering of
-             the resulting collection.</param>
-             <param name="signalReset">When this Observable is signalled, 
-             the derived collection will be manually 
-             reordered/refiltered.</param>
-             <returns>A new collection whose items are equivalent to
-             Collection.Select().Where().OrderBy() and will mirror changes 
-             in the initial collection.</returns>
+             <param name="This">
+             The source <see cref="T:System.Collections.Generic.IEnumerable`1"/> to track.
+             </param>
+             <param name="selector">
+             A Select function that will be run on each item.
+             </param>
+             <param name="onRemoved">
+             An action that is called on each item when it is removed.
+             </param>
+             <param name="filter">
+             A filter to determine whether to exclude items in the derived collection.
+             </param>
+             <param name="orderer">
+             A comparator method to determine the ordering of the resulting collection.
+             </param>
+             <param name="signalReset">
+             When this Observable is signalled, the derived collection will be manually 
+             reordered/refiltered.
+             </param>
+             <param name="scheduler">
+             An optional scheduler used to dispatch change notifications.
+             </param>
+             <returns>
+             A new collection whose items are equivalent to
+             <c>Collection.Select().Where().OrderBy()</c> and will mirror changes 
+             in the initial collection.
+             </returns>
         </member>
         <member name="M:ReactiveUI.ObservableCollectionMixin.CreateDerivedCollection``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Boolean},System.Func{``1,``1,System.Int32},System.IObservable{``2},System.Reactive.Concurrency.IScheduler)">
              <summary>
@@ -2915,68 +3197,103 @@
             
              Note that even though this method attaches itself to any 
              IEnumerable, it will only detect changes from objects implementing
-             INotifyCollectionChanged (like ReactiveList). If your source
-             collection doesn't implement this, signalReset is the way to signal
-             the derived collection to reorder/refilter itself.
+             <see cref="T:System.Collections.Specialized.INotifyCollectionChanged"/> (like <see cref="T:ReactiveUI.ReactiveList`1"/>). 
+             If your source collection doesn't implement this, <paramref name="signalReset"/> 
+             is the way to signal the derived collection to reorder/refilter itself.
              </summary>
-             <param name="selector">A Select function that will be run on each
-             item.</param>
-             <param name="filter">A filter to determine whether to exclude items 
-             in the derived collection.</param>
-             <param name="orderer">A comparator method to determine the ordering of
-             the resulting collection.</param>
-             <param name="signalReset">When this Observable is signalled, 
-             the derived collection will be manually 
-             reordered/refiltered.</param>
-             <returns>A new collection whose items are equivalent to
-             Collection.Select().Where().OrderBy() and will mirror changes 
-             in the initial collection.</returns>
+             <param name="This">
+             The source <see cref="T:System.Collections.Generic.IEnumerable`1"/> to track.
+             </param>
+             <param name="selector">
+             A Select function that will be run on each item.
+             </param>
+             <param name="filter">
+             A filter to determine whether to exclude items in the derived collection.
+             </param>
+             <param name="orderer">
+             A comparator method to determine the ordering of the resulting collection.
+             </param>
+             <param name="signalReset">
+             When this Observable is signalled, the derived collection will be manually 
+             reordered/refiltered.
+             </param>
+             <param name="scheduler">
+             An optional scheduler used to dispatch change notifications.
+             </param>
+             <returns>
+             A new collection whose items are equivalent to
+             <c>Collection.Select().Where().OrderBy()</c> and will mirror changes 
+             in the initial collection.
+             </returns>
         </member>
         <member name="M:ReactiveUI.ObservableCollectionMixin.CreateDerivedCollection``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Action{``1},System.Func{``0,System.Boolean},System.Func{``1,``1,System.Int32},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Creates a collection whose contents will "follow" another
-            collection; this method is useful for creating ViewModel collections
-            that are automatically updated when the respective Model collection
-            is updated.
+             <summary>
+             Creates a collection whose contents will "follow" another
+             collection; this method is useful for creating ViewModel collections
+             that are automatically updated when the respective Model collection
+             is updated.
             
-            Be aware that this overload will result in a collection that *only* 
-            updates if the source implements INotifyCollectionChanged. If your
-            list changes but isn't a ReactiveList/ObservableCollection,
-            you probably want to use the other overload.
-            </summary>
-            <param name="selector">A Select function that will be run on each
-            item.</param>
-            <param name="onRemoved">An action that is called on each item when
-            it is removed.</param>
-            <param name="filter">A filter to determine whether to exclude items 
-            in the derived collection.</param>
-            <param name="orderer">A comparator method to determine the ordering of
-            the resulting collection.</param>
-            <returns>A new collection whose items are equivalent to
-            Collection.Select().Where().OrderBy() and will mirror changes 
-            in the initial collection.</returns>
+             Be aware that this overload will result in a collection that *only* 
+             updates if the source implements INotifyCollectionChanged. If your
+             list changes but isn't a ReactiveList/ObservableCollection,
+             you probably want to use the other overload.
+             </summary>
+             <param name="This">
+             The source <see cref="T:System.Collections.Generic.IEnumerable`1"/> to track.
+             </param>
+             <param name="selector">
+             A Select function that will be run on each item.
+             </param>
+             <param name="onRemoved">
+             An action that is called on each item when it is removed.
+             </param>
+             <param name="filter">
+             A filter to determine whether to exclude items in the derived collection.
+             </param>
+             <param name="orderer">
+             A comparator method to determine the ordering of the resulting collection.
+             </param>
+             <param name="scheduler">
+             An optional scheduler used to dispatch change notifications.
+             </param>
+             <returns>
+             A new collection whose items are equivalent to
+             <c>Collection.Select().Where().OrderBy()</c> and will mirror changes 
+             in the initial collection.
+             </returns>
         </member>
         <member name="M:ReactiveUI.ObservableCollectionMixin.CreateDerivedCollection``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Boolean},System.Func{``1,``1,System.Int32},System.Reactive.Concurrency.IScheduler)">
-            <summary>
-            Creates a collection whose contents will "follow" another
-            collection; this method is useful for creating ViewModel collections
-            that are automatically updated when the respective Model collection
-            is updated.
+             <summary>
+             Creates a collection whose contents will "follow" another
+             collection; this method is useful for creating ViewModel collections
+             that are automatically updated when the respective Model collection
+             is updated.
             
-            Be aware that this overload will result in a collection that *only* 
-            updates if the source implements INotifyCollectionChanged. If your
-            list changes but isn't a ReactiveList/ObservableCollection,
-            you probably want to use the other overload.
-            </summary>
-            <param name="selector">A Select function that will be run on each
-            item.</param>
-            <param name="filter">A filter to determine whether to exclude items 
-            in the derived collection.</param>
-            <param name="orderer">A comparator method to determine the ordering of
-            the resulting collection.</param>
-            <returns>A new collection whose items are equivalent to
-            Collection.Select().Where().OrderBy() and will mirror changes 
-            in the initial collection.</returns>
+             Be aware that this overload will result in a collection that *only* 
+             updates if the source implements INotifyCollectionChanged. If your
+             list changes but isn't a ReactiveList/ObservableCollection,
+             you probably want to use the other overload.
+             </summary>
+             <param name="This">
+             The source <see cref="T:System.Collections.Generic.IEnumerable`1"/> to track.
+             </param>
+             <param name="selector">
+             A Select function that will be run on each item.
+             </param>
+             <param name="filter">
+             A filter to determine whether to exclude items in the derived collection.
+             </param>
+             <param name="orderer">
+             A comparator method to determine the ordering of the resulting collection.
+             </param>
+             <param name="scheduler">
+             An optional scheduler used to dispatch change notifications.
+             </param>
+             <returns>
+             A new collection whose items are equivalent to
+             <c>Collection.Select().Where().OrderBy()</c> and will mirror changes 
+             in the initial collection.
+             </returns>
         </member>
         <member name="T:ReactiveUI.ReactiveCommand">
             <summary>
@@ -3793,7 +4110,12 @@
             Activation when it doesn't have a backing ViewModel.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:ReactiveUI.IViewFor" -->
+        <member name="T:ReactiveUI.IViewFor">
+            <summary>
+            This base class is mostly used by the Framework. Implement <see cref="T:ReactiveUI.IViewFor`1"/>
+            instead.
+            </summary>
+        </member>
         <member name="P:ReactiveUI.IViewFor.ViewModel">
              <summary>
             
@@ -3938,7 +4260,15 @@
             this method just calls 'new' on an object.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:ReactiveUI.ISuspensionHost.AppState" -->
+        <member name="P:ReactiveUI.ISuspensionHost.AppState">
+            <summary>
+            The current application state - get a typed version of this via 
+            <see cref="M:ReactiveUI.SuspensionHostExtensions.GetAppState``1(ReactiveUI.ISuspensionHost)"/>.
+            The "application state" is a notion entirely defined
+            via the client application - the framework places no restrictions on
+            the object other than it can be serialized.
+            </summary>
+        </member>
         <member name="T:ReactiveUI.ISuspensionDriver">
             <summary>
             ISuspensionDriver represents a class that can load/save state to persistent
@@ -4157,7 +4487,58 @@
             </para>
             </remarks>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:ReactiveUI.DefaultViewLocator.ResolveView``1(``0,System.String)" -->
+        <member name="M:ReactiveUI.DefaultViewLocator.ResolveView``1(``0,System.String)">
+            <summary>
+            Returns the view associated with a view model, deriving the name of the type via <see cref="P:ReactiveUI.DefaultViewLocator.ViewModelToViewFunc"/>, then discovering it via the
+            service locator.
+            </summary>
+            <remarks>
+            <para>
+            Given view model type <c>T</c> with runtime type <c>RT</c>, this implementation will attempt to resolve the following views:
+            <list type="number">
+            <item>
+            <description>
+            Look for a service registered under the type whose name is given to us by passing <c>RT</c> to <see cref="P:ReactiveUI.DefaultViewLocator.ViewModelToViewFunc"/> (which defaults to changing "ViewModel" to "View").
+            </description>
+            </item>
+            <item>
+            <description>
+            Look for a service registered under the type <c>IViewFor&lt;RT&gt;</c>.
+            </description>
+            </item>
+            <item>
+            <description>
+            Look for a service registered under the type whose name is given to us by passing <c>T</c> to <see cref="P:ReactiveUI.DefaultViewLocator.ViewModelToViewFunc"/> (which defaults to changing "ViewModel" to "View").
+            </description>
+            </item>
+            <item>
+            <description>
+            Look for a service registered under the type <c>IViewFor&lt;T&gt;</c>.
+            </description>
+            </item>
+            <item>
+            <description>
+            If <c>T</c> is an interface, change its name to that of a class (i.e. drop the leading "I"). If it's a class, change to an interface (i.e. add a leading "I").
+            </description>
+            </item>
+            <item>
+            <description>
+            Repeat steps 1-4 with the type resolved from the modified name.
+            </description>
+            </item>
+            </list>
+            </para>
+            </remarks>
+            <param name="viewModel">
+            The view model whose associated view is to be resolved.
+            </param>
+            <param name="contract">
+            Optional contract to be used when resolving from Splat
+            </param>
+            <returns>
+            The view associated with the given view model.
+            </returns>
+        </member>
         <member name="M:ReactiveUI.WhenAnyMixin.WhenAnyValue``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             WhenAnyValue allows you to observe whenever the value of a

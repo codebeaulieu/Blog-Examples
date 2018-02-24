@@ -13,29 +13,61 @@ namespace FirstStepsReactiveUI
 	{    
 		protected Lazy<CompositeDisposable> ControlBindings = new Lazy<CompositeDisposable>(() => new CompositeDisposable()); 
  
+        bool _controlsBound = false;
+
 		protected abstract void SetupUserInterface();
 
 		protected abstract void BindControls();
  
 		protected ContentPageBase() : base()
 		{   
-			SetupUserInterface(); 
-			BindControls();  
+			SetupUserInterface();  
 		}
  
+        const string RendererPropertyName = "Renderer";
+
+        protected override void OnPropertyChanged(string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+
+            if (propertyName.Equals(RendererPropertyName, StringComparison.OrdinalIgnoreCase))
+            {
+                var rendererResolver = DependencyService.Get<Interfaces.IRendererResolver>();
+
+                if (rendererResolver == null)
+                    throw new NullReferenceException("The renderer resolver was not initialized properly");
+
+                if (rendererResolver.HasRenderer(this))
+                    RegisterBindings();
+                else
+                    UnregisterBindings();
+            } 
+        }
+
 		protected override void OnDisappearing()
 		{
-			base.OnDisappearing(); 
+			base.OnDisappearing();  
+		}  
 
-			UnbindControls(); 
-		} 
+        protected void RegisterBindings()
+        {
+            if (_controlsBound)
+                return;
+ 
+            ViewModel?.RegisterBindings();
+            BindControls();
+            _controlsBound = true;
+        }
 
+        protected void UnregisterBindings()
+        {
+            _controlsBound = false;
+ 
+            ViewModel?.UnregisterBindings();
 
-		protected void UnbindControls()
-		{  
-			if (ControlBindings == null) return;
+            if (!ControlBindings.IsValueCreated) return;
 
-			ControlBindings.Value.Clear();
-		} 
-	}
+            ControlBindings?.Value?.Clear();
+        }
+    } 
 }

@@ -29,7 +29,7 @@
 /Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/FirstStepsReactiveUI/obj/Debug/FirstStepsReactiveUI.dll
 /Users/danbeaulieu/Documents/Blogs/Your First Reactive UI Project/FirstStepsReactiveUI/FirstStepsReactiveUI/obj/Debug/FirstStepsReactiveUI.dll.mdb
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/FirstStepsReactiveUI.dll
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/FirstStepsReactiveUI.dll.mdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/FirstStepsReactiveUI.pdb
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/ReactiveUI.dll
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/ReactiveUI.XamForms.dll
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Splat.dll
@@ -40,14 +40,6 @@
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Core.dll
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Platform.dll
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Xaml.dll
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Core.pdb
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Core.dll.mdb
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Core.xml
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Platform.pdb
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Platform.dll.mdb
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Xaml.pdb
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Xaml.dll.mdb
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Xaml.xml
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/System.Reactive.Interfaces.xml
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/System.Reactive.Core.xml
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/System.Reactive.Linq.xml
@@ -56,6 +48,12 @@
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/ReactiveUI.xml
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/ReactiveUI.XamForms.pdb
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/ReactiveUI.XamForms.xml
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/obj/Debug/FirstStepsReactiveUI.csprojResolveAssemblyReference.cache
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Core.pdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Core.dll.mdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Core.xml
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Xaml.pdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Xaml.dll.mdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/bin/Debug/Xamarin.Forms.Xaml.xml
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/obj/Debug/FirstStepsReactiveUI.csproj.CoreCompileInputs.cache
 /Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/obj/Debug/FirstStepsReactiveUI.dll
-/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/obj/Debug/FirstStepsReactiveUI.dll.mdb
+/Users/danbeaulieu/Documents/Development/Blog-Examples/StartingPoint/FirstStepsReactiveUI/obj/Debug/FirstStepsReactiveUI.pdb
